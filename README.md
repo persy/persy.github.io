@@ -1,1 +1,1 @@
-Fondatore, autore ed editore del [WikiBigino](https://wikibigino.miraheze.org/wiki/Pagina_principale).
+Fondatore, autore ed editore del [WikiBigino](https://wikibigino.miraheze.org/wiki/Pagina_principale) e di [Wastelander](https://wastelander.netlify.app/).
