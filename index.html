@@ -2,15 +2,78 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <!-- Questo comando dice al browser di andare subito all'altro link -->
-    <meta http-equiv="refresh" content="0; url=https://persy.github.io/piccoli_prontuari/">
-    <title>Reindirizzamento...</title>
-    <script>
-        // Sicurezza extra: se il meta tag fallisce, ci pensa JavaScript
-        window.location.href = "https://persy.github.io/piccoli_prontuari/";
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I miei progetti</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="I miei progetti">
+    <meta property="og:description" content="Una selezione delle mie ultime creazioni.">
+    <meta property="og:url" content="https://persy.github.io/">
+    <meta property="og:image" content="https://persy.github.io/assets/og-preview.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I miei progetti">
+    <meta name="twitter:description" content="Una selezione delle mie ultime creazioni.">
+    <meta name="twitter:image" content="https://persy.github.io/assets/og-preview.png">
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Se non vieni reindirizzato automaticamente, <a href="https://persy.github.io/piccoli_prontuari/">clicca qui</a>.</p>
+
+    <div class="container">
+        <header>
+            <h1>I miei progetti</h1>
+            <p>Una selezione delle mie ultime creazioni.</p>
+        </header>
+
+        <main class="project-grid">
+            
+            <article class="project-card card-1">
+                <div class="card-image">
+                    <img src="assets/image01.webp" alt="Anteprima Progetto 1" class="preview-img">
+                    <div class="project-logo-overlay">
+                        <img src="assets/logo01.webp" alt="Logo Progetto" class="logo-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">WikiBigino</h2>
+                    <p class="card-description">Un ibrido fra un bignami digitale e un'enciclopedia per studenti, con le voci essenziali di tutte le materie principali.</p>
+                    <a href="https://wikibigino.miraheze.org/wiki/Pagina_principale" class="card-link" target="_blank">Apri Progetto</a>
+                </div>
+            </article>
+
+            <article class="project-card card-2">
+                <div class="card-image">
+                    <img src="assets/image02.webp" alt="Anteprima Progetto 2" class="preview-img">
+                    <div class="project-logo-overlay">
+                        <img src="assets/logo02.webp" alt="Logo Progetto" class="logo-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Piccoli Prontuari</h2>
+                    <p class="card-description">Una collana di manuali sintetici che coprono le principali materie di studio della scuola secondaria di secondo grado, utili per un ripasso veloce.</p>
+                    <a href="https://persy.github.io/piccoli_prontuari/" class="card-link" target="_blank">Apri Progetto</a>
+                </div>
+            </article>
+
+            <article class="project-card card-3">
+                <div class="card-image">
+                    <img src="assets/image03.webp" alt="Anteprima Progetto 3" class="preview-img">
+                    <div class="project-logo-overlay">
+                        <img src="assets/logo03.webp" alt="Logo Progetto" class="logo-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Wastelander</h2>
+                    <p class="card-description">Una wiki condensata e senza fronzoli, ideale per giocare al meglio Fallout 3 e Fallout: New Vegas.</p>
+                    <a href="https://wastelander.netlify.app/" class="card-link" target="_blank">Apri Progetto</a>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
 </body>
 </html>

@@ -1,0 +1,246 @@
+/* ==========================================================================
+   VARIABILI GLOBALI (Configurazione centralizzata del design)
+   ========================================================================== */
+:root {
+    /* Tavolozza di Base del Layout */
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --bg-button: #334155;
+    
+    /* Tipografia */
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+
+    /* I 3 Colori Primari dei Progetti (Modifica solo questi per cambiare tema) */
+    --color-p1-primary: #0051ff; 
+    --color-p2-primary: #fe2600; 
+    --color-p3-primary: #03d10d; 
+}
+
+/* Reset e Stili di Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 3rem 1rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+
+    /* Il titolo principale sfuma dinamicamente usando i colori del progetto 1 e 2 */
+    background: linear-gradient(135deg, var(--color-p1-primary), var(--color-p2-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Layout a Griglia */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Struttura della Card */
+.project-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Bordo superiore comune a tutte le card */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    z-index: 2;
+}
+
+/* Contenitore Immagine Anteprima */
+.card-image {
+    width: 100%;
+    height: 190px;
+    background-color: var(--bg-button);
+    overflow: hidden;
+    position: relative;
+    
+    /* SOLUZIONE RADICALE: Forza il browser ad aprire lo spazio 3D */
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    isolation: isolate;
+}
+
+.card-image img.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    
+    /* L'immagine rimane sul fondo dello spazio 3D (Z = 0) */
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Sfumatura verso il nero sovrapposta all'immagine */
+.card-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    transform: translateZ(5px);
+    z-index: 1;
+}
+
+/* Piccolo quadrato del logo sovrapposto */
+.project-logo-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--bg-main);
+    
+    /* SOLUZIONE RADICALE: Solleva il logo di 10px, mettendolo sopra sia all'immagine che al gradiente */
+    transform: translateZ(10px);
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+/* Modifica anche l'effetto hover del logo per non rompere il livello 3D */
+.project-card:hover .project-logo-overlay {
+    transform: scale(1.1) translateZ(10px);
+}
+
+/* Contenuto Testuale */
+.card-content {
+    padding: 1.75rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    flex-grow: 1;
+}
+
+/* Bottone / Link al Progetto */
+.card-link {
+    display: inline-block;
+    text-align: center;
+    background: var(--bg-button);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.card-link:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   CONFIGURAZIONE ELEMENTI DIPENDENTI DAI 3 COLORI PRIMARI
+   ========================================================================== */
+
+/* --- GESTIONE CARD 1 --- */
+.card-1::before { 
+    /* Il gradiente viene generato miscelando il colore primario con il 40% di bianco */
+    background: linear-gradient(90deg, var(--color-p1-primary), color-mix(in srgb, var(--color-p1-primary), #ffffff 40%)); 
+}
+.card-1 .card-link:hover { 
+    background: var(--color-p1-primary); 
+}
+
+/* --- GESTIONE CARD 2 --- */
+.card-2::before { 
+    background: linear-gradient(90deg, var(--color-p2-primary), color-mix(in srgb, var(--color-p2-primary), #ffffff 40%)); 
+}
+.card-2 .card-link:hover { 
+    background: var(--color-p2-primary); 
+}
+
+/* --- GESTIONE CARD 3 --- */
+.card-3::before { 
+    background: linear-gradient(90deg, var(--color-p3-primary), color-mix(in srgb, var(--color-p3-primary), #ffffff 40%)); 
+}
+.card-3 .card-link:hover { 
+    background: var(--color-p3-primary); 
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    body { padding: 1.5rem 1rem; }
+    header { margin-bottom: 2.5rem; }
+    .project-grid { gap: 1.5rem; }
+    .project-logo-overlay { width: 35px; height: 35px; bottom: 8px; left: 8px; font-size: 1.1rem; }
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantiene le proporzioni del logo senza tagliarlo */
+    padding: 4px;        /* Un po' di margine interno per non farlo toccare i bordi */
+}
+
