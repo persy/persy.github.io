@@ -47,8 +47,6 @@ header h1 {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
-
-    /* Il titolo principale sfuma dinamicamente usando i colori del progetto 1 e 2 */
     background: linear-gradient(135deg, var(--color-p1-primary), var(--color-p2-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -101,8 +99,6 @@ header p {
     background-color: var(--bg-button);
     overflow: hidden;
     position: relative;
-    
-    /* SOLUZIONE RADICALE: Forza il browser ad aprire lo spazio 3D */
     transform-style: preserve-3d;
     perspective: 1000px;
     isolation: isolate;
@@ -113,13 +109,10 @@ header p {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-    
-    /* L'immagine rimane sul fondo dello spazio 3D (Z = 0) */
     transform: translateZ(0);
     will-change: transform;
 }
 
-/* Sfumatura verso il nero sovrapposta all'immagine */
 .card-image::after {
     content: '';
     position: absolute;
@@ -149,14 +142,11 @@ header p {
     font-weight: 800;
     font-size: 1.2rem;
     color: var(--bg-main);
-    
-    /* SOLUZIONE RADICALE: Solleva il logo di 10px, mettendolo sopra sia all'immagine che al gradiente */
     transform: translateZ(10px);
     z-index: 2;
     transition: transform 0.3s ease;
 }
 
-/* Modifica anche l'effetto hover del logo per non rompere il livello 3D */
 .project-card:hover .project-logo-overlay {
     transform: scale(1.1) translateZ(10px);
 }
@@ -240,7 +230,57 @@ header p {
 .logo-img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Mantiene le proporzioni del logo senza tagliarlo */
-    padding: 4px;        /* Un po' di margine interno per non farlo toccare i bordi */
+    object-fit: contain; 
+    padding: 4px;        
 }
 
+/* ==========================================================================
+   FOOTER STYLE
+   ========================================================================== */
+footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bg-button); 
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-muted);
+}
+
+.footer-content a {
+    color: var(--text-muted);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Al passaggio del mouse, il link si colora usando una delle variabili primarie */
+.footer-links a:hover {
+    color: var(--color-p2-primary);
+    transform: translateY(-1px);
+}
+
+/* Ottimizzazione per schermi piccoli */
+@media (max-width: 640px) {
+    footer {
+        margin-top: 4rem;
+    }
+    .footer-content {
+        gap: 0.75rem;
+    }
+}
