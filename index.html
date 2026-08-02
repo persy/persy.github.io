@@ -1,89 +1,145 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I miei progetti</title>
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="I miei progetti">
-    <meta property="og:description" content="Una selezione delle mie ultime creazioni.">
-    <meta property="og:url" content="https://persy.github.io/">
-    <meta property="og:image" content="https://persy.github.io/assets/og-preview.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PERSONAL TERMINAL // PERSY</title>
+<meta property="og:title" content="I progetti di Persy">
+  <meta property="og:description" content="Una selezione delle mie ultime creazioni.">
+  <meta property="og:url" content="https://persy.github.io/">
+  <meta property="og:image" content="https://persy.github.io/assets/og-preview.png">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="I miei progetti">
-    <meta name="twitter:description" content="Una selezione delle mie ultime creazioni.">
-    <meta name="twitter:image" content="https://persy.github.io/assets/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="I progetti di Persy">
+  <meta name="twitter:description" content="Una selezione delle mie ultime creazioni.">
+  <meta name="twitter:image" content="https://persy.github.io/assets/og-preview.png">
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="manifest" href="assets/site.webmanifest">
-    <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>I miei progetti</h1>
-            <p>Una selezione delle mie ultime creazioni.</p>
-        </header>
+<!-- filtro SVG duotono: converte qualunque immagine (b/n o a colori) in verde fosforo -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="duotoneGreen">
+      <feColorMatrix type="matrix" values="
+        0.33 0.33 0.33 0 0
+        0.33 0.33 0.33 0 0
+        0.33 0.33 0.33 0 0
+        0    0    0    1 0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0.31" intercept="0"/>
+        <feFuncG type="linear" slope="1.35" intercept="0.05"/>
+        <feFuncB type="linear" slope="0.58" intercept="0.02"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+</svg>
 
-        <main class="project-grid">
-            
-            <article class="project-card card-1">
-                <div class="card-image">
-                    <img src="assets/image01.webp" alt="Anteprima Progetto 1" class="preview-img">
-                    <div class="project-logo-overlay">
-                        <img src="assets/logo01.webp" alt="Logo Progetto" class="logo-img">
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">WikiBigino</h2>
-                    <p class="card-description">Un ibrido fra un bignami digitale e un'enciclopedia per studenti, con le voci essenziali di tutte le materie principali.</p>
-                    <a href="https://wikibigino.miraheze.org/wiki/Pagina_principale" class="card-link" target="_blank">Apri Progetto</a>
-                </div>
-            </article>
+<div class="crt-overlay"><div class="beam"></div></div>
 
-            <article class="project-card card-2">
-                <div class="card-image">
-                    <img src="assets/image02.webp" alt="Anteprima Progetto 2" class="preview-img">
-                    <div class="project-logo-overlay">
-                        <img src="assets/logo02.webp" alt="Logo Progetto" class="logo-img">
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">Piccoli Prontuari</h2>
-                    <p class="card-description">Una collana di manuali sintetici che coprono le principali materie di studio della scuola secondaria di secondo grado, utili per un ripasso veloce.</p>
-                    <a href="https://persy.github.io/piccoli_prontuari/" class="card-link" target="_blank">Apri Progetto</a>
-                </div>
-            </article>
+<div id="screen">
+  <pre id="boot" class="glow"></pre>
 
-            <article class="project-card card-3">
-                <div class="card-image">
-                    <img src="assets/image03.webp" alt="Anteprima Progetto 3" class="preview-img">
-                    <div class="project-logo-overlay">
-                        <img src="assets/logo03.webp" alt="Logo Progetto" class="logo-img">
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">Wastelander</h2>
-                    <p class="card-description">Una wiki condensata e senza fronzoli, ideale per giocare al meglio Fallout 3 e Fallout: New Vegas.</p>
-                    <a href="https://wastelander.netlify.app/" class="card-link" target="_blank">Apri Progetto</a>
-                </div>
-            </article>
+  <div id="app">
+    <header>
+      <h1 class="glow">PERSONAL TERMINAL // PERSY</h1>
+      <div class="header-controls">
+        <button class="back-btn" id="mute-btn" type="button">[ AUDIO: OFF ]</button>
+        <div class="clock" id="clock">00:00:00</div>
+      </div>
+    </header>
 
-        </main>
-    </div>
-
-<footer>
-        <div class="footer-content">
-            <p>&copy; 2026 &bull; Creato con <em><a href="https://it.wikipedia.org/wiki/%C4%86evap%C4%8Di%C4%87i" target="_blank">ciba</a></em> e rilasciato sotto licenza MIT.</p>
-            <div class="footer-links">
-                <a href="https://github.com/persy" target="_blank">GitHub</a>
-                <a href="mailto:marco.persy@gmail.com">Contatti</a>
-            </div>
+    <main>
+      <!-- HOME: semplice lista di sezioni -->
+      <div class="page active" id="page-home">
+        <p class="glow" style="font-size:20px; margin-bottom:16px;">BENVENUTO, VAULT DWELLER.</p>
+        <div class="menu-list" id="home-menu">
+          <div class="item" data-target="progetti" data-image="assets/images/progetti.webp">
+            <div>&gt; PROGETTI<span class="desc">I miei lavori principali</span></div>
+          </div>
+          <div class="item" data-target="special" data-image="assets/images/special.webp">
+            <div>&gt; S.P.E.C.I.A.L.<span class="desc">Skill e interessi</span></div>
+          </div>
+          <div class="item" data-target="social" data-image="assets/images/social.webp">
+            <div>&gt; SOCIAL<span class="desc">Dove trovarmi</span></div>
+          </div>
         </div>
-    </footer>
+        <div class="home-hero">
+          <img class="vaultboy-img" id="home-hero-img" src="" alt="Vault Boy"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
+        </div>
+      </div>
 
+      <!-- SOTTOPAGINA: PROGETTI -->
+      <div class="page" id="page-progetti">
+        <div class="page-body">
+          <div class="menu-list" id="progetti-list">
+            <!-- MODIFICA QUI: i progetti vengono generati da script.js (array PROJECTS) -->
+          </div>
+          <div class="home-hero">
+            <img class="vaultboy-img" id="progetti-hero-img" src="" alt="Vault Boy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
+          </div>
+        </div>
+        <div class="back-row"><button class="back-btn" data-back>[ INDIETRO ]</button></div>
+      </div>
+
+      <!-- SOTTOPAGINA: DETTAGLIO PROGETTO (riutilizzata per ogni progetto) -->
+      <div class="page" id="page-progetto-detail">
+  <div class="page-body">
+    <pre class="glow project-detail-text" id="progetto-detail-text"></pre>
+    
+    <div class="home-hero">
+      <img class="vaultboy-img" id="detail-hero-img" src="" alt="Vault Boy"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
+    </div>
+  </div>
+  <div class="back-row">
+    <button class="back-btn" data-back>[ INDIETRO ]</button>
+    <button class="back-btn" id="progetto-detail-site">[ VAI AL SITO ]</button>
+  </div>
+</div>
+      <div class="page" id="page-special">
+        <div class="page-body">
+          <pre class="glow project-detail-text" id="special-text"></pre>
+          <div class="home-hero">
+            <img class="vaultboy-img" src="assets/images/special.webp" alt="Vault Boy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
+          </div>
+        </div>
+        <div class="back-row"><button class="back-btn" data-back>[ INDIETRO ]</button></div>
+      </div>
+
+      <!-- SOTTOPAGINA: SOCIAL -->
+      <div class="page" id="page-social">
+        <div class="page-body">
+          <pre class="glow project-detail-text" id="social-text"></pre>
+          <div class="social-list" id="social-list">
+            <!-- MODIFICA QUI: i social vengono generati da script.js (array SOCIALS) -->
+          </div>
+          <div class="home-hero">
+            <img class="vaultboy-img" src="assets/images/social.webp" alt="Vault Boy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
+          </div>
+        </div>
+        <div class="back-row"><button class="back-btn" data-back>[ INDIETRO ]</button></div>
+      </div>
+    </main>
+
+    <footer>ROBCO INDUSTRIES (TM) TERMLINK // FRECCE = NAVIGA · INVIO = SELEZIONA · ESC = INDIETRO · M = MUTA AUDIO</footer>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
