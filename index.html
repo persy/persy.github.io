@@ -2,7 +2,7 @@
 <html prefix="og: https://ogp.me/ns#" lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>PERSONAL TERMINAL // PERSY</title>
   
   <!-- SEO Standard -->
@@ -32,8 +32,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<!-- Filtro SVG nascosto correttamente -->
-<svg style="display: none;" aria-hidden="true">
+<!-- Filtro SVG nascosto in modo compatibile con tutti i browser:
+     display:none rompe filter:url(#id) su Firefox, quindi si nasconde
+     azzerando le dimensioni invece di usare display:none -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <filter id="duotoneGreen">
       <feColorMatrix type="matrix" values="
