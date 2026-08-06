@@ -9,7 +9,7 @@
 :root{
   --green: #2dff03;
   --green-dim: #239147;
-  --green-glow: rgba(28, 255, 8, 0.356);
+  --green-glow: rgba(151, 255, 142, 0.664);
   --bg: #181818;
 
   /* --- parametri effetto CRT (da afterglow-crt, preset "green") --- */
@@ -60,7 +60,7 @@ body::after{
   flex-direction: column;
 }
 h1,h2,h3,p,ul,li{ margin:0; padding:0; }
-.glow{ text-shadow: 0 0 2px var(--green-glow); }
+.glow{ text-shadow: 0 0 3px var(--green-glow); }
 
 /* ---------- OVERLAY CRT (scanline, vignetta, fascio, flicker) ----------
    Adattato da afterglow-crt (github.com/HauntedCrusader/afterglow-crt),
@@ -174,7 +174,7 @@ header h1{ font-size: 30px; letter-spacing: 0; }
   gap: 14px;
 }
 header .clock{ font-size: 22px; }
-#mute-btn{ white-space: nowrap; }
+#mute-btn{ white-space: nowrap; display:none; }
 
 main{
   flex: 1;
@@ -197,6 +197,7 @@ main{
   min-height: 0;
   display: flex;
   flex-direction: column;
+  padding-bottom: 100px;
 }
 
 /* spazio riempito dall'immagine vaultboy, sotto al contenuto */
@@ -215,6 +216,7 @@ main{
   max-height: 100%;
   transition: opacity .15s ease;
 }
+
 .home-hero .vb-fallback{ height: 100%; }
 
 .vaultboy-img{
@@ -250,12 +252,22 @@ main{
 }
 .back-btn{
   font-family: inherit;
-  font-size: 16px;
+  font-size: 22px;
   color: var(--green);
   background: transparent;
   border: 1px solid var(--green);
   padding: 6px 16px;
   cursor: pointer;
+}
+.back-btn::before {
+  content: "[ ";
+  position: relative;
+  bottom: 2px; /* Aumenta o diminuisci per centrare */
+}
+.back-btn::after {
+  content: " ]";
+  position: relative;
+  bottom: 2px;
 }
 .back-btn.selected{
   background: var(--green);
@@ -298,7 +310,7 @@ main{
   flex-shrink: 0;
 }
 .social-item .social-name{
-  font-size: 20px;
+  font-size: 22px;
 }
 .social-item.selected i{ color: #000; }
 
@@ -309,10 +321,10 @@ main{
 
 .project-detail-text{
   font-family: 'FixedsysExcelsior', monospace;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.5;
   white-space: pre-wrap;
-  margin: 0;
+  margin: 0;  
 }
 .project-detail-text .cursor{
   display:inline-block;
@@ -337,29 +349,71 @@ footer{
 
 /* ---------- RESPONSIVE (mobile) ---------- */
 @media (max-width: 720px){
+
+  #boot{
+  font-family: 'FixedsysExcelsior', monospace;
+  font-size: 20px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  z-index: 2;
+}
   #screen{ padding: 12px; }
-  header h1{ font-size: 30px; }
+  header h1{ font-size: 25px; }
   header .clock{ font-size: 18px; }
 
   main{ padding: 14px 12px; }
 
-  .menu-list .item{ font-size: 25px; }
+  .menu-list .item{ font-size: 20px; }
 
   .vaultboy-img{ max-height: 140px; }
   .vb-fallback{ padding: 14px 10px; font-size: 13px; }
 
   .item{ font-size: 22px; }
-  .item .desc{ font-size: 18px; }
+  .item .desc{ font-size: 16px; }
 
-  .back-btn{ font-size: 22px; padding: 5px 12px; }
+  .back-btn{ font-size: 18px; padding: 5px 12px; }
 
-  footer{ font-size: 18px; }
+  footer{ font-size: 14px; }
+
+  .back-row { 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .page-body {
+    margin-bottom: 10px; 
+    overflow-y: auto;
+  }
 }
 /* ----------------------------------------- */
 
 .page-body > *:not(.home-hero),
 .page > p.glow,
+.page > .menu-list,
 .back-row {
   position: relative;
   z-index: 1;
+}
+
+.home-hero-details::after { 
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;  
+  z-index: 0; 
+  animation: blur-in 0ms 50ms forwards;
+}
+
+@keyframes blur-in {
+  from {
+    backdrop-filter: blur(0px);
+  }
+  to {
+    backdrop-filter: blur(5px);
+  }
 }

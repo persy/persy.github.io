@@ -57,10 +57,10 @@
 
   <div id="app">
     <header>
-      <h1 class="glow">PERSONAL TERMINAL // PERSY</h1>
+      <h1 class="glow">PERSY //</h1>
       <div class="header-controls">
-        <button class="back-btn" id="mute-btn" type="button">[ AUDIO: OFF ]</button>
-        <div class="clock" id="clock">00:00:00</div>
+        <button class="glow back-btn" id="mute-btn" type="button">AUDIO: OFF</button>
+        <div class="glow clock" id="clock">00:00:00</div>
       </div>
     </header>
 
@@ -68,7 +68,7 @@
       <!-- HOME: semplice lista di sezioni -->
       <div class="page active" id="page-home">
         <p class="glow" style="font-size:20px; margin-bottom:16px;">BENVENUTO, VAULT DWELLER.</p>
-        <div class="menu-list" id="home-menu">
+        <div class="menu-list glow" id="home-menu">
           <div class="item" data-target="progetti" data-image="assets/images/progetti.webp">
             <div>&gt; PROGETTI<span class="desc">I miei lavori principali</span></div>
           </div>
@@ -89,7 +89,7 @@
       <!-- SOTTOPAGINA: PROGETTI -->
       <div class="page" id="page-progetti">
         <div class="page-body">
-          <div class="menu-list" id="progetti-list">
+          <div class="menu-list glow" id="progetti-list">
             <!-- MODIFICA QUI: i progetti vengono generati da script.js (array PROJECTS) -->
           </div>
           <div class="home-hero">
@@ -98,7 +98,7 @@
             <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
           </div>
         </div>
-        <div class="back-row"><button class="back-btn" data-back>[ INDIETRO ]</button></div>
+        <div class="back-row glow"><button class="back-btn" data-back>INDIETRO</button></div>
       </div>
 
       <!-- SOTTOPAGINA: DETTAGLIO PROGETTO (riutilizzata per ogni progetto) -->
@@ -106,47 +106,47 @@
   <div class="page-body">
     <pre class="glow project-detail-text" id="progetto-detail-text"></pre>
     
-    <div class="home-hero">
+    <div class="home-hero home-hero-details">
       <img class="vaultboy-img" id="detail-hero-img" src="" alt="Vault Boy"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
     </div>
   </div>
   <div class="back-row">
-    <button class="back-btn" data-back>[ INDIETRO ]</button>
-    <button class="back-btn" id="progetto-detail-site">[ VAI AL SITO ]</button>
+    <button class="back-btn" data-back>INDIETRO</button>
+    <button class="back-btn" id="progetto-detail-site">SITO</button>
   </div>
 </div>
       <div class="page" id="page-special">
         <div class="page-body">
           <pre class="glow project-detail-text" id="special-text"></pre>
-          <div class="home-hero">
+          <div class="home-hero home-hero-details">
             <img class="vaultboy-img" src="assets/images/special.webp" alt="Vault Boy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
           </div>
         </div>
-        <div class="back-row"><button class="back-btn" data-back>[ INDIETRO ]</button></div>
+        <div class="back-row"><button class="glow back-btn" data-back>INDIETRO</button></div>
       </div>
 
       <!-- SOTTOPAGINA: SOCIAL -->
       <div class="page" id="page-social">
         <div class="page-body">
           <pre class="glow project-detail-text" id="social-text"></pre>
-          <div class="social-list" id="social-list">
+          <div class="social-list glow" id="social-list">
             <!-- MODIFICA QUI: i social vengono generati da script.js (array SOCIALS) -->
           </div>
-          <div class="home-hero">
+          <div class="home-hero home-hero-details">
             <img class="vaultboy-img" src="assets/images/social.webp" alt="Vault Boy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="vb-fallback">[ IMMAGINE VAULT-BOY ]</div>
           </div>
         </div>
-        <div class="back-row"><button class="back-btn" data-back>[ INDIETRO ]</button></div>
+        <div class="back-row"><button class="back-btn" data-back>INDIETRO</button></div>
       </div>
     </main>
 
-    <footer>ROBCO INDUSTRIES (TM) TERMLINK // FRECCE = NAVIGA · INVIO = SELEZIONA · ESC = INDIETRO · M = MUTA AUDIO</footer>
+    <footer>ROBCO INDUSTRIES (TM) TERMLINK // FRECCE = NAVIGA · INVIO = SELEZIONA · ESC = INDIETRO · M = MUSICA</footer>
   </div>
 </div>
 

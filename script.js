@@ -18,7 +18,7 @@ const PROJECTS = [
       "",
       "I Piccoli Prontuari compongono un progetto a scopo didattico, rivolto a tutte le classi della scuola secondaria di secondo grado.",
       "Con uno stile breve e conciso, una grafica minimale ma funzionale, i Piccoli Prontuari sono ideali per fare un breve e veloce ripasso e coprire eventuali lacune.",
-      "Le materie trattate spazianko dalla biologia alla matematica, dalla letteratura alla storia, dalla filosofia alla storia dell'arte.",
+      "Le materie trattate spaziando dalla biologia alla matematica, dalla letteratura alla storia, dalla filosofia alla storia dell'arte.",
       "",
     ],
     image: "assets/images/progetto_01.webp",
@@ -134,12 +134,12 @@ const SOUNDS = {
   ]
 };
 
-const AMBIENT_VOLUME = 0.55;
+const AMBIENT_VOLUME = 0.85;
 
 // volumi separati, 0 (muto) - 1 (massimo)
 const SOUND_VOLUME = {
   bootStart: 0.7,
-  line: 0.4,
+  line: 0.5,
   select: 0.6,
   back: 0.6,
   move: 0.45
